@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{title}}
+{% endblock %}
+
+
+{% block content %}
+<p>This is content of {{title}} page</p>
+
+Username: {{ user }}
+<br>
+Logged: {{ user.is_authenticated }}
+<br>
+Request Username: {{ request.user }}
+<br>
+Request path: {{ request.path }}
+<br>
+{% if user.is_authenticated %}
+    <h1>User olny data</h1>
+    Username: {{ user }}
+    <ul>
+    {% for a in my_list %}
+    <li>{{ a }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}
